@@ -44,7 +44,7 @@ class GoogleSheets:
                     self.SCOPES
                 )
                 self.console.log('Credentials accept')
-                creds = flow.run_local_server(open_browser=False)
+                creds = flow.run_local_server(open_browser=True)
 
             with open(token_path, 'w') as token:
                 token.write(creds.to_json())

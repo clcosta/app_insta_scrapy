@@ -29,6 +29,7 @@ INPUT_ERROR = ("QLineEdit{\n"
 )
 
 POPUP_ERROR = "background-color: rgb(255, 44, 109);border-radius: 10px;"
+POPUP_NEUTRO = "background-color: rgb(37, 150, 190);border-radius: 10px;"
 POPUP_OK = "background-color: rgb(25, 249, 216);border-radius: 10px;"
 
 LABEL_VERDE = "color: rgb(25, 249, 216);"

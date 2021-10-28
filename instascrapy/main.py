@@ -7,9 +7,13 @@ from PyQt5.QtWidgets import QApplication, QMainWindow
 from .core import Ui_ConfiguracoesWindow, Ui_MainWindow, Autenticacao
 from .core.colors import *
 
+from .instascraping import InstaScraping
+
 class TelaInicial(QMainWindow):
 
     URL_HTU = "http://insta-scrapy.herokuapp.com/como-utilizar"
+
+    instascraping = InstaScraping()
 
     def __init__(self):
         QMainWindow.__init__(self)
@@ -23,6 +27,8 @@ class TelaInicial(QMainWindow):
 
         ## Botão "não sabe utilizar" -> redirecionamento para o site
         self.initial.btn_como_utilizar.clicked.connect(self.abrir_how_to_use)
+
+        self.initial.btn_raspar_dados.clicked.connect(self.scraping)
 
         ## Abrir janela de settings
         self.initial.btn_configuracoes.clicked.connect(self.abrir_settings)
@@ -43,6 +49,51 @@ class TelaInicial(QMainWindow):
 
     def __iniciar_subclasses(self):
         ...
+
+    def scraping(self):
+
+        ## Mostar erro
+        def showMessage(message, message_color=POPUP_ERROR):
+            self.initial.frame_error.show()
+            self.initial.frame_error.setStyleSheet(message_color)
+            self.initial.lb_error.setText(message)
+
+        ## Checar o campo de input_users
+        def check_fields():
+            if self.initial.input_users.toPlainText() == "":
+                showMessage(" Preencha corretamente o campo de usuarios! ")
+            else:
+                showMessage(
+                    " Iniciando Scraping! ", message_color=POPUP_NEUTRO
+                )
+                return True
+
+        check = check_fields()
+        ## Está verificação de segurança não é necessário
+        if not check:
+            return 
+        
+        texto = self.initial.input_users.toPlainText()
+        users = texto.split("\n")
+        lista_de_perfils = [user for user in users if user not in ("",'\n')]
+        try:
+            geral_data = self.instascraping.get_users_follows_infos(
+                users=lista_de_perfils, sleep_time=10
+            )
+            self.instascraping.transformar_dict_em_sheets(
+                data=geral_data, range_name="Geral"
+            )
+        except Exception as error:
+            showMessage(f'Erro durante geral -> {error}')
+        try:
+            data = self.instascraping.get_posts(lista_de_perfils, sleep_time=10)
+            if data != None:
+                self.instascraping.transformar_posts_dict_em_sheets(
+                    data, lista_de_perfils
+                )
+        except Exception as error:
+            showMessage(f'Erro durante posts -> {error}')
+
 
 
 class TelaConfiguracoes(QMainWindow):
