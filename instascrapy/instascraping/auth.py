@@ -4,7 +4,7 @@ import os
 existe = False
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-auth_txt_path = os.path.join(BASE_DIR,'instascraping','auth.txt')
+auth_txt_path = os.path.join(BASE_DIR,"instascraping", 'auth.txt')
 
 if os.path.exists(auth_txt_path):
     existe = True

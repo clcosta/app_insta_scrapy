@@ -80,7 +80,7 @@ class Ui_ConfiguracoesWindow(object):
 "    color: rgb(200,200,200);\n"
 "}")
         self.input_user.setText("")
-        self.input_user.setMaxLength(32)
+        self.input_user.setMaxLength(64)
         self.input_user.setEchoMode(QtWidgets.QLineEdit.Normal)
         self.input_user.setObjectName("input_user")
         self.btn_atualizar = QtWidgets.QPushButton(self.conteudo)
@@ -175,7 +175,7 @@ class Ui_ConfiguracoesWindow(object):
 "    color: rgb(200,200,200);\n"
 "}")
         self.input_password.setText("")
-        self.input_password.setMaxLength(32)
+        self.input_password.setMaxLength(64)
         self.input_password.setEchoMode(QtWidgets.QLineEdit.Password)
         self.input_password.setObjectName("input_password")
         self.input_sheetid = QtWidgets.QLineEdit(self.conteudo)
@@ -203,7 +203,7 @@ class Ui_ConfiguracoesWindow(object):
 "    color: rgb(200,200,200);\n"
 "}")
         self.input_sheetid.setText("")
-        self.input_sheetid.setMaxLength(32)
+        self.input_sheetid.setMaxLength(64)
         self.input_sheetid.setEchoMode(QtWidgets.QLineEdit.Normal)
         self.input_sheetid.setObjectName("input_sheetid")
         self.input_aba_sheets = QtWidgets.QLineEdit(self.conteudo)
@@ -231,7 +231,7 @@ class Ui_ConfiguracoesWindow(object):
 "    color: rgb(200,200,200);\n"
 "}")
         self.input_aba_sheets.setText("")
-        self.input_aba_sheets.setMaxLength(32)
+        self.input_aba_sheets.setMaxLength(64)
         self.input_aba_sheets.setEchoMode(QtWidgets.QLineEdit.Normal)
         self.input_aba_sheets.setObjectName("input_aba_sheets")
         self.lb_google_sheets = QtWidgets.QLabel(self.conteudo)
@@ -270,7 +270,7 @@ class Ui_ConfiguracoesWindow(object):
 "    color: rgb(200,200,200);\n"
 "}")
         self.input_sessionid.setText("")
-        self.input_sessionid.setMaxLength(32)
+        self.input_sessionid.setMaxLength(64)
         self.input_sessionid.setEchoMode(QtWidgets.QLineEdit.Normal)
         self.input_sessionid.setObjectName("input_sessionid")
         self.horizontalLayout_4.addWidget(self.conteudo)
@@ -287,7 +287,7 @@ class Ui_ConfiguracoesWindow(object):
         self.btn_atualizar.setText(_translate("ConfiguracoesWindow", "ATUALIZAR"))
         self.lb_description.setText(_translate("ConfiguracoesWindow", "Estás configurações é um arquivo dentro da pasta!"))
         self.lb_configs.setText(_translate("ConfiguracoesWindow", "Configurações"))
-        self.btn_cancelar.setText(_translate("ConfiguracoesWindow", "CANCELAR"))
+        self.btn_cancelar.setText(_translate("ConfiguracoesWindow", " VOLTAR "))
         self.input_password.setPlaceholderText(_translate("ConfiguracoesWindow", "SENHA"))
         self.input_sheetid.setPlaceholderText(_translate("ConfiguracoesWindow", "ID DA PLANILHA DO GOOGLE SHEETS"))
         self.input_aba_sheets.setPlaceholderText(_translate("ConfiguracoesWindow", "PÁGINA DO GOOGLE SHEETS"))

@@ -1,11 +1,13 @@
-from .core import Ui_MainWindow, Ui_ConfiguracoesWindow
 import sys
+import webbrowser
 
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
+from .core import Ui_ConfiguracoesWindow, Ui_MainWindow
 from .core.colors import *
-import webbrowser
+from .instascraping.auth import (CONNECTION_RANGE, PASSWORD, SESSION_ID,
+                                 SHEET_ID, USERNAME)
 
 class TelaInicial(QMainWindow):
     
@@ -41,6 +43,8 @@ class TelaInicial(QMainWindow):
         self.hide()
         self.ui = settings
 
+    def __iniciar_subclasses(self):
+        ...
 class TelaConfiguracoes(QMainWindow):
 
     def __init__(self):
@@ -52,8 +56,14 @@ class TelaConfiguracoes(QMainWindow):
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
 
+        ## Definir pré textos
+        self.pre_textos()
+
         ## Abrir jnalea inicial
         self.settings.btn_cancelar.clicked.connect(self.abrir_initial)
+
+        ## Atualizar informações
+        self.settings.btn_atualizar.clicked.connect(self.update_settings)
 
         ## Mostrar tela
         self.show()
@@ -62,3 +72,47 @@ class TelaConfiguracoes(QMainWindow):
         initial = TelaInicial()
         self.hide()
         self.ui = initial
+    
+    def pre_textos(self):
+        self.settings.input_user.setText(USERNAME)
+        self.settings.input_password.setText(PASSWORD)
+        self.settings.input_sessionid.setText(SESSION_ID)
+        self.settings.input_sheetid.setText(SHEET_ID)
+        self.settings.input_aba_sheets.setText(CONNECTION_RANGE)
+
+    def update_settings(self):
+
+        ## Mostar erro
+        def showMessage(message, message_color = LABEL_ERROR):
+            self.settings.lb_configs.setStyleSheet(message_color)
+            self.settings.lb_configs.setText(message)
+
+        ## Checar se os campos estão preenchidos
+        def check_fields():
+            lista_inputs = [
+                self.settings.input_user,
+                self.settings.input_password,
+                self.settings.input_sessionid,
+                self.settings.input_sheetid,
+                self.settings.input_aba_sheets,
+            ]
+
+            check = True
+            for i, inputs in enumerate(lista_inputs):
+                if inputs.text() == "":
+                    check = False
+                    inputs.setStyleSheet(INPUT_ERROR)
+                    showMessage(" Update Error ")
+
+                elif inputs.text() != "":
+                    inputs.setStyleSheet(INPUT_OK)
+
+            if check:
+                showMessage("  Atualizado! ", message_color = LABEL_VERDE)
+                return True
+            else: return False
+
+        check = check_fields()
+        if check:
+            print("atualizar")
+
