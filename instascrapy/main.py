@@ -1,3 +1,4 @@
+import os
 import sys
 import webbrowser
 
@@ -13,8 +14,6 @@ class TelaInicial(QMainWindow):
 
     URL_HTU = "http://insta-scrapy.herokuapp.com/como-utilizar"
 
-    instascraping = InstaScraping()
-
     def __init__(self):
         QMainWindow.__init__(self)
         self.initial = Ui_MainWindow()
@@ -26,8 +25,12 @@ class TelaInicial(QMainWindow):
         self.initial.frame_error.hide()
 
         ## Botão "não sabe utilizar" -> redirecionamento para o site
+        self.initial.btn_cancelar.clicked.connect(self.cancelar_thread)
+
+        ## Botão "não sabe utilizar" -> redirecionamento para o site
         self.initial.btn_como_utilizar.clicked.connect(self.abrir_how_to_use)
 
+        ## Botão "Raspar dados" -> InstaScraping
         self.initial.btn_raspar_dados.clicked.connect(self.scraping)
 
         ## Abrir janela de settings
@@ -47,11 +50,12 @@ class TelaInicial(QMainWindow):
         self.hide()
         self.ui = settings
 
-    def __iniciar_subclasses(self):
-        ...
+    def cancelar_thread(self):
+        os.system("taskkill /f /im  python.exe")
 
     def scraping(self):
 
+        instascraping = InstaScraping()
         ## Mostar erro
         def showMessage(message, message_color=POPUP_ERROR):
             self.initial.frame_error.show()
@@ -68,6 +72,28 @@ class TelaInicial(QMainWindow):
                 )
                 return True
 
+        def scraping_geral():
+            try:
+                geral_data = instascraping.get_users_follows_infos(
+                    users=lista_de_perfils, sleep_time=10
+                )
+                instascraping.transformar_dict_em_sheets(
+                    data=geral_data, range_name="Geral"
+                )
+            except Exception as error:
+                showMessage(f'Erro durante geral -> {error}')
+        def scraping_posts():
+            try:
+                data = instascraping.get_posts(lista_de_perfils, sleep_time=10)
+                if data != None:
+                    instascraping.transformar_posts_dict_em_sheets(
+                        data, lista_de_perfils
+                    )
+                showMessage(" Raspagem realizada com Sucesso! ", POPUP_OK)
+            except Exception as error:
+                showMessage(f'Erro durante posts -> {error}')
+
+
         check = check_fields()
         ## Está verificação de segurança não é necessário
         if not check:
@@ -76,25 +102,9 @@ class TelaInicial(QMainWindow):
         texto = self.initial.input_users.toPlainText()
         users = texto.split("\n")
         lista_de_perfils = [user for user in users if user not in ("",'\n')]
-        try:
-            geral_data = self.instascraping.get_users_follows_infos(
-                users=lista_de_perfils, sleep_time=10
-            )
-            self.instascraping.transformar_dict_em_sheets(
-                data=geral_data, range_name="Geral"
-            )
-        except Exception as error:
-            showMessage(f'Erro durante geral -> {error}')
-        try:
-            data = self.instascraping.get_posts(lista_de_perfils, sleep_time=10)
-            if data != None:
-                self.instascraping.transformar_posts_dict_em_sheets(
-                    data, lista_de_perfils
-                )
-        except Exception as error:
-            showMessage(f'Erro durante posts -> {error}')
-
-
+        scraping_geral()
+        scraping_posts()
+        return 
 
 class TelaConfiguracoes(QMainWindow):
 

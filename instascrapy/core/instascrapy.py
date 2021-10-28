@@ -252,7 +252,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "InstaScrapy"))
         self.lb_error.setText(_translate("MainWindow", "ERROR"))
         self.btn_configuracoes.setText(_translate("MainWindow", "CONFIGURAÇÕES"))
-        self.btn_cancelar.setText(_translate("MainWindow", "CANCELAR"))
+        self.btn_cancelar.setText(_translate("MainWindow", " FECHAR "))
         self.lb_ajustes.setText(_translate("MainWindow", "Clique aqui para ajustar as Configurações"))
         self.btn_como_utilizar.setText(_translate("MainWindow", "Não sabe como utliziar?"))
         self.lb_title.setText(_translate("MainWindow", "Digite os usuarios"))
