@@ -1,1 +1,1 @@
-{'USERNAME': 'claudiopython2', 'PASSWORD': 'pythonbot123123', 'SESSION_ID': '49723805832%3AcADK0ap7Icg8UV%3A29', 'SHEET_ID': '1ydeTWq6QgLeKGS5fdYwQWCXQyrbXlvn77FJKayTbWho', 'CONNECTION_RANGE': 'Connection!A1'}
+{'USERNAME': '', 'PASSWORD': '', 'SESSION_ID': '', 'SHEET_ID': '', 'CONNECTION_RANGE': ''}
