@@ -34,10 +34,6 @@ git clone https://github.com/clcosta/portfolio-django-flask.git
 ```
 pip install -r requirements.txt
 ```
-   ### Ou se estiver no Mac OS X tente
-```
-$ pip3 install -r requirements.txt
-```
 
 ## Como utilizar
 
