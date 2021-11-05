@@ -46,7 +46,7 @@ _Siga as instruções passo a passo!_
 1. Primeiramnete é importantissimo você não utilizar sua conta no instagram para realizar a raspagem de dados de outro perfil, o instagram tem uma politica muito restrita contra qualquer perseguição e para sau conta não ser detectada como SPAM eu recomento criar uma outra conta só pra este proposito.<br><br>
 
 2. Com a conta criada você terá de colocar o e-mail e senha no aplicativo na janela de configurações.
- ![Configurações](.\images\github_apresentation\usuario_senha.png)
+ ![Configurações](https://i.ibb.co/F0RKvVB/usuario-senha.png)
 <br><br>
 
 3. Agora com o usuario e senha já colocados, precisamos colocar um ID de SESSÂO, que é basicamente um cookie gerado pelo instagram toda vez que você faz login no site.
@@ -58,7 +58,7 @@ O id de uma plhanilha do google fica dentro do seu URL e ele pode ser encontrado
 ![ID_SHEETS](https://i.ibb.co/KwDnMNR/image.png)
 
 5. Agora você precisa de uma página de conexão dentro da sua planilha! Este é o mais simples, é so criar uma aba dentro do google sheets com o nome que desejar e escrever na célula A1 qualquer coisa, e depois colocar no ultimo campo o seguinte formato \<NOME DA PAGINA>!A1. No caso do exemplo abaixo ficaria *__Connection!A1__* <br><br>
-![CONNECTION_RANGE](.\images\github_apresentation\connection.png)
+![CONNECTION_RANGE](https://i.ibb.co/g4gLgzS/connection.png)
 <br><br>
 
 6. Por padrão desta aplicação a função de **Geral** já vem ativada, sendo assim é necessário criar também uma página dentro da planilha e chama-la de "Geral", escrito dessa forma obrigatoriamente.
