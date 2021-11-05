@@ -106,7 +106,15 @@ class GoogleSheets:
         colunas = [i for i in data]
         df = pd.DataFrame(data, columns=colunas)
         df_list = [df.columns.values.tolist()] + df.values.tolist()
-        self.add_lista_de_valores_em_range(df_list, range_name, mode='update')
+        mode = 'update'
+        try:
+            titulos = self.ler_valores_em_range('Geral!A1:D1')
+            if titulos == [['Usernames', 'Followers', 'Following', 'Posts']]:
+                mode='append'
+                df_list.pop(0)
+        except:
+            mode='update'
+        self.add_lista_de_valores_em_range(df_list, range_name, mode=mode)
 
 
     def transformar_posts_dict_em_sheets(self,data,lista_de_perfils):

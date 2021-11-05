@@ -92,6 +92,7 @@ class InstagramScrapingSelenium:
         element = wait.until(EC.presence_of_element_located((By.XPATH, '//span[@class="g47SY "]')))
         n_posts = self.driver.find_elements_by_xpath('//span[@class="g47SY "]')[0].text
         if '.' in n_posts: n_posts = n_posts.replace('.', '')
+        if ',' in n_posts: n_posts = n_posts.replace(',', '')
         self.console.log(f'Foram encontrados [bold]{n_posts}[/] neste perfil!')
         return int(n_posts)
 
