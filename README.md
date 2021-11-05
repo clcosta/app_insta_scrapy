@@ -45,7 +45,7 @@ _Siga as instruções passo a passo!_
 
 1. Primeiramnete é importantissimo você não utilizar sua conta no instagram para realizar a raspagem de dados de outro perfil, o instagram tem uma politica muito restrita contra qualquer perseguição e para sau conta não ser detectada como SPAM eu recomento criar uma outra conta só pra este proposito.<br><br>
 
-2. Com a conta criada você terá de colocar o e-mail e senha no aplicativo na janela de configurações.
+2. Com a conta criada você terá de colocar o e-mail e senha no aplicativo na janela de configurações.<br><br>
  ![Configurações](https://i.ibb.co/F0RKvVB/usuario-senha.png)
 <br><br>
 
