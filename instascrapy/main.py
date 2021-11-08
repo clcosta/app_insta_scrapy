@@ -55,12 +55,20 @@ class TelaInicial(QMainWindow):
 
     def scraping(self):
 
-        instascraping = InstaScraping()
         ## Mostar erro
         def showMessage(message, message_color=POPUP_ERROR):
             self.initial.frame_error.show()
             self.initial.frame_error.setStyleSheet(message_color)
             self.initial.lb_error.setText(message)
+
+        instascraping = InstaScraping()
+        ## Limitador de posts
+        text_limitador = self.initial.input_limitador.text()
+        if text_limitador and text_limitador != '0' and text_limitador.isnumeric():
+            posts_limitador = int(text_limitador)
+            instascraping.LIMITADOR = posts_limitador
+        else:
+            return showMessage("Preencha o limitador sómente com números!")
 
         ## Checar o campo de input_users
         def check_fields():

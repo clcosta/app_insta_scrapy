@@ -34,6 +34,8 @@ class InstagramScrapingSelenium:
 
     SESSION_ID = SESSION_ID
 
+    LIMITADOR = None
+
     def __init__(self, webdriver=ChromeDriverManager().install()):
         self.__webdriver = webdriver
         self.sleep_time = self.SLEEP_TIME
@@ -118,7 +120,8 @@ class InstagramScrapingSelenium:
             self.console.log(f'Iniciando extração do perfil [green]{user}[/]')
             self.driver.get(f'https://www.instagram.com/{user}')
             self.esperar_post_carregar()
-            n = self.pegar_n_posts()
+            if not self.LIMITADOR: n = self.pegar_n_posts()
+            else: n = self.LIMITADOR
             posts = self.__scrapings_link_posts(n)
             data = {f'{user}': {}}
             likes_list = []
@@ -182,7 +185,7 @@ class InstagramScrapingSelenium:
             }
             return headers
 
-        response = make_request()
+        response = make_request(headers=headers)
         
         if response.text == "":
             new_headers = make_headers()

@@ -1,5 +1,5 @@
 # Bem vindo ao **Portfolio APP Insta Scrapy**!
-<p><img height="20" src="https://img.shields.io/badge/Version-BETA3.0-blue"/></p>
+<p><img height="20" src="https://img.shields.io/badge/Version-BETA4.0-blue"/></p>
 
 Este projeto ainda está em desenvolvimento, ele pretende pegar todas as publicações de um perfil no instagram e juntar todas as informações em uma unica aba dentro do google sheets para no futuro ser análisado todos os posts de um perfil e o seu crescimento ao longo do tempo.
 
