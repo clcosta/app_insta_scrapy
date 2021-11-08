@@ -64,9 +64,12 @@ class TelaInicial(QMainWindow):
         instascraping = InstaScraping()
         ## Limitador de posts
         text_limitador = self.initial.input_limitador.text()
-        if text_limitador and text_limitador != '0' and text_limitador.isnumeric():
+        if text_limitador and text_limitador.isnumeric():
             posts_limitador = int(text_limitador)
             instascraping.LIMITADOR = posts_limitador
+        elif text_limitador == '0':
+            ## Sem limitador
+            instascraping.LIMITADOR = None
         else:
             return showMessage("Preencha o limitador sómente com números!")
 
@@ -89,7 +92,7 @@ class TelaInicial(QMainWindow):
                     data=geral_data, range_name="Geral"
                 )
             except Exception as error:
-                showMessage(f'Erro durante geral -> {error}')
+                showMessage(f'Erro durante geral -> {error.__class__.__name__}')
         def scraping_posts():
             try:
                 data = instascraping.get_posts(lista_de_perfils, sleep_time=10)
@@ -99,7 +102,7 @@ class TelaInicial(QMainWindow):
                     )
                 showMessage(" Raspagem realizada com Sucesso! ", POPUP_OK)
             except Exception as error:
-                showMessage(f'Erro durante posts -> {error}')
+                showMessage(f'Erro durante posts -> {error.__class__.__name__}')
 
 
         check = check_fields()
