@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'instascrapy.ui'
+# Form implementation generated from reading ui file '.\ui\instascrapy.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.5
 #
@@ -15,7 +15,7 @@ from . import VERSION
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(557, 725)
+        MainWindow.resize(684, 805)
         MainWindow.setMinimumSize(QtCore.QSize(500, 700))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/icone/icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -104,7 +104,7 @@ class Ui_MainWindow(object):
         self.logo.setFrameShadow(QtWidgets.QFrame.Raised)
         self.logo.setObjectName("logo")
         self.btn_configuracoes = QtWidgets.QPushButton(self.content)
-        self.btn_configuracoes.setGeometry(QtCore.QRect(155, 480, 130, 50))
+        self.btn_configuracoes.setGeometry(QtCore.QRect(155, 500, 130, 50))
         self.btn_configuracoes.setMaximumSize(QtCore.QSize(280, 50))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
@@ -125,7 +125,7 @@ class Ui_MainWindow(object):
 "}")
         self.btn_configuracoes.setObjectName("btn_configuracoes")
         self.btn_cancelar = QtWidgets.QPushButton(self.content)
-        self.btn_cancelar.setGeometry(QtCore.QRect(80, 400, 135, 50))
+        self.btn_cancelar.setGeometry(QtCore.QRect(80, 430, 135, 50))
         self.btn_cancelar.setMinimumSize(QtCore.QSize(135, 0))
         self.btn_cancelar.setMaximumSize(QtCore.QSize(135, 50))
         font = QtGui.QFont()
@@ -150,7 +150,7 @@ class Ui_MainWindow(object):
 "}")
         self.btn_cancelar.setObjectName("btn_cancelar")
         self.lb_ajustes = QtWidgets.QLabel(self.content)
-        self.lb_ajustes.setGeometry(QtCore.QRect(80, 470, 280, 20))
+        self.lb_ajustes.setGeometry(QtCore.QRect(80, 490, 280, 20))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(10)
@@ -161,7 +161,7 @@ class Ui_MainWindow(object):
         self.lb_ajustes.setAlignment(QtCore.Qt.AlignCenter)
         self.lb_ajustes.setObjectName("lb_ajustes")
         self.btn_como_utilizar = QtWidgets.QPushButton(self.content)
-        self.btn_como_utilizar.setGeometry(QtCore.QRect(250, 360, 131, 23))
+        self.btn_como_utilizar.setGeometry(QtCore.QRect(235, 395, 131, 23))
         self.btn_como_utilizar.setStyleSheet("QPushButton{\n"
 "    color: rgb(0, 170, 255);\n"
 "    background-color: rgb(30,30,30,);\n"
@@ -197,7 +197,7 @@ class Ui_MainWindow(object):
         self.input_users.setStyleSheet("background-color: rgb(121, 121, 121);")
         self.input_users.setObjectName("input_users")
         self.btn_raspar_dados = QtWidgets.QPushButton(self.content)
-        self.btn_raspar_dados.setGeometry(QtCore.QRect(235, 400, 135, 50))
+        self.btn_raspar_dados.setGeometry(QtCore.QRect(235, 430, 135, 50))
         self.btn_raspar_dados.setMinimumSize(QtCore.QSize(135, 0))
         self.btn_raspar_dados.setMaximumSize(QtCore.QSize(135, 50))
         font = QtGui.QFont()
@@ -221,6 +221,31 @@ class Ui_MainWindow(object):
 "    border: 2px solid rgb(0, 255, 252);\n"
 "}")
         self.btn_raspar_dados.setObjectName("btn_raspar_dados")
+        self.lb_limitador = QtWidgets.QLabel(self.content)
+        self.lb_limitador.setGeometry(QtCore.QRect(85, 350, 140, 50))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(22)
+        font.setBold(True)
+        font.setWeight(75)
+        self.lb_limitador.setFont(font)
+        self.lb_limitador.setStyleSheet("color: rgb(255, 255, 255);")
+        self.lb_limitador.setObjectName("lb_limitador")
+        self.input_limitador = QtWidgets.QLineEdit(self.content)
+        self.input_limitador.setGeometry(QtCore.QRect(235, 368, 138, 21))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.input_limitador.setFont(font)
+        self.input_limitador.setStyleSheet("background-color: rgb(121, 121, 121);\n"
+"border: 2px solid rgb(70,70,70);\n"
+"border-radius: 5px;")
+        self.input_limitador.setInputMask("")
+        self.input_limitador.setText("")
+        self.input_limitador.setAlignment(QtCore.Qt.AlignCenter)
+        self.input_limitador.setObjectName("input_limitador")
         self.horizontalLayout.addWidget(self.content)
         self.verticalLayout.addWidget(self.body)
         self.footer = QtWidgets.QFrame(self.centralwidget)
@@ -252,13 +277,15 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "InstaScrapy"))
         self.lb_error.setText(_translate("MainWindow", "ERROR"))
         self.btn_configuracoes.setText(_translate("MainWindow", "CONFIGURAÇÕES"))
-        self.btn_cancelar.setText(_translate("MainWindow", " FECHAR "))
+        self.btn_cancelar.setText(_translate("MainWindow", "CANCELAR"))
         self.lb_ajustes.setText(_translate("MainWindow", "Clique aqui para ajustar as Configurações"))
         self.btn_como_utilizar.setText(_translate("MainWindow", "Não sabe como utliziar?"))
         self.lb_title.setText(_translate("MainWindow", "Digite os usuarios"))
         self.input_users.setPlaceholderText(_translate("MainWindow", "Cada usuario em uma linha do código."))
         self.btn_raspar_dados.setText(_translate("MainWindow", "RASPAR DADOS"))
-        self.lb_credits.setText(_translate("MainWindow", f"{VERSION}"))
+        self.lb_limitador.setText(_translate("MainWindow", "Limitador"))
+        self.input_limitador.setPlaceholderText(_translate("MainWindow", "0 (sem limitador)"))
+        self.lb_credits.setText(_translate("MainWindow", "BETA 0.1 © Created By: Claudio Lima F. "))
 import file_rc_rc
 
 
