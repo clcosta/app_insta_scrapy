@@ -12,7 +12,7 @@ from .instascraping import InstaScraping
 
 class TelaInicial(QMainWindow):
 
-    URL_HTU = "http://insta-scrapy.herokuapp.com/como-utilizar"
+    URL_HTU = "https://github.com/clcosta/app_insta_scrapy#readme"
 
     def __init__(self):
         QMainWindow.__init__(self)
@@ -67,7 +67,7 @@ class TelaInicial(QMainWindow):
         if text_limitador and text_limitador.isnumeric():
             posts_limitador = int(text_limitador)
             instascraping.LIMITADOR = posts_limitador
-        elif text_limitador == '0':
+        elif text_limitador in ('0', ''):
             ## Sem limitador
             instascraping.LIMITADOR = None
         else:

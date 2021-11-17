@@ -281,11 +281,11 @@ class Ui_MainWindow(object):
         self.lb_ajustes.setText(_translate("MainWindow", "Clique aqui para ajustar as Configurações"))
         self.btn_como_utilizar.setText(_translate("MainWindow", "Não sabe como utliziar?"))
         self.lb_title.setText(_translate("MainWindow", "Digite os usuarios"))
-        self.input_users.setPlaceholderText(_translate("MainWindow", "Cada usuario em uma linha do código."))
+        self.input_users.setPlaceholderText(_translate("MainWindow", "Cada usuario em uma linha."))
         self.btn_raspar_dados.setText(_translate("MainWindow", "RASPAR DADOS"))
         self.lb_limitador.setText(_translate("MainWindow", "Limitador"))
         self.input_limitador.setPlaceholderText(_translate("MainWindow", "0 (sem limitador)"))
-        self.lb_credits.setText(_translate("MainWindow", "BETA 4.0 © Created By: Claudio Lima F. "))
+        self.lb_credits.setText(_translate("MainWindow", f"{VERSION}"))
 import file_rc_rc
 
 
