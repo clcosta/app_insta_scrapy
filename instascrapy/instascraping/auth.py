@@ -15,14 +15,14 @@ if os.path.exists(auth_txt_path):
 """ Instagram User infos """
 
 if not existe:
-    USERNAME = 'claudiopython2'
-    PASSWORD = 'pythonbot123123'  
-    SESSION_ID = '49723805832%3Ar8LptxxkRBu8E2%3A20'
+    USERNAME = '<SEU USUARIO NO INSTAGRAM>'
+    PASSWORD = '<SUA SENHA NO INSTAGRAM>'  
+    SESSION_ID = '<SEU SESSION ID>'
 
     """ Google Sheets infos """
 
-    SHEET_ID = '1dGSu6PVtC2eY5hXGFzoh5vl_lYt70yIpPBlP2-Mywpk'
-    CONNECTION_RANGE = 'Connection!A1' ## Página oculta
+    SHEET_ID = '<SEU ID DO GOOGLE SHEETS>'
+    CONNECTION_RANGE = '<SUA PÀGINA DE CONEXÂO>' ## Página oculta
 else:
     USERNAME = data['USERNAME']
     PASSWORD = data['PASSWORD']
