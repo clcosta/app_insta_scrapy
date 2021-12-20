@@ -82,16 +82,16 @@ class InstagramScrapingSelenium:
         element = wait.until(
             EC.presence_of_element_located(
                 (
-                    By.XPATH,
-                    '//*[@id="react-root"]/section/main/div/div/div/section/div/button',
+                    By.CSS_SELECTOR,
+                    'button.sqdOP.yWX7d.y3zKF',
                 )
             )
         )
         if element is None:
             return
         else:
-            self.driver.find_element_by_xpath(
-                '//*[@id="react-root"]/section/main/div/div/div/div/button'
+            self.driver.find_element_by_css_selector(
+                'button.sqdOP.yWX7d.y3zKF',
             ).click()
 
     def pular_segundo_popup(self):
@@ -324,6 +324,7 @@ class InstagramScrapingSelenium:
         except Exception as error:
             print("Error ao Fazer Login no Instagram: ", error)
         try:
+            time.sleep(10)
             self.pular_primeiro_popup()
         except Exception as error:
             try:
